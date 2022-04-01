@@ -13,14 +13,7 @@ const handlClick = (img) => {
 // コンポーネントの中に配列を渡してループさせないといけない
 // useStateでアコーディオン
 
-const ComparisonCard = ({
-  products,
-  // img,
-  // manufacture,
-  // brand,
-  // product,
-  // categorySmall,
-}) => {
+const ComparisonCard = ({ products }) => {
   return (
     <div>
       <section className="bg-white">
