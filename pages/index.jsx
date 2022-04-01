@@ -13,7 +13,7 @@ import ChooseCategorySmall from "../components/ChooseCategorySmall";
 import TopBottomBanner from "../components/TopBottomBanner";
 import ChooseActiveIngredientName from "../components/ChooseActiveIngredientName";
 
-const index = ({ searchResult, cardsData }) => {
+const Index = ({ searchResult, cardsData }) => {
   const router = useRouter();
   const { brand } = router.query;
 
@@ -142,4 +142,4 @@ const index = ({ searchResult, cardsData }) => {
   );
 };
 
-export default index;
+export default Index;
