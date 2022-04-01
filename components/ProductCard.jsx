@@ -3,10 +3,10 @@ import { HeartIcon } from "@heroicons/react/solid";
 import { StarIcon } from "@heroicons/react/solid";
 import Router from "next/router";
 
-const handlClick = (categorySmall) => {
+const handlClick = (img) => {
   Router.push({
     pathname: "/productdetail",
-    query: { categorySmall },
+    query: { img },
   });
 };
 
@@ -25,7 +25,7 @@ const ProductCard = ({
   return (
     <div
       className="flex py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out first:border-t"
-      onClick={() => handlClick(categorySmall)}
+      onClick={() => handlClick(img)}
     >
       {/* <div className="bg-contain bg-center relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0"> */}
       <div className="bg-contain bg-center relative h-60 p-10 mr-20 ml-20 flex-shrink-0">

@@ -8,7 +8,7 @@ const MediumCard = ({ img, product, categorySmall, activeIngredientName }) => {
 
   const search = () => {
     router.push({
-      pathname: "/productlist",
+      pathname: "/productdetail",
       query: {
         img: img,
       },
