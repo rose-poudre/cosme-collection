@@ -54,6 +54,7 @@ const ComparisonCardTest20220331 = ({
                           <td className="tdBgWhite">
                             <div className="bg-contain bg-center relative h-10 p-10 mr-10 ml-10 flex-shrink-0">
                               <Image
+                                key={img}
                                 src={img}
                                 layout="fill"
                                 // objectFit="cover"

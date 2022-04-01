@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FilterdCard from "../components/FilterdCard";
 
-const filtered = () => {
+const Filtered = () => {
   return (
     <div>
       <section>
@@ -19,4 +19,4 @@ const filtered = () => {
   );
 };
 
-export default filtered;
+export default Filtered;

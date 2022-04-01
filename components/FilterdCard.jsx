@@ -16,7 +16,7 @@ const FilterdCard = ({ placeholder }) => {
 
   const search = () => {
     router.push({
-      pathname: "/comparisonTest20220331",
+      pathname: "/comparison",
       query: {
         manufacture: manufactureInput,
         brand: brandInput,

@@ -30,7 +30,7 @@ const FirebaseCard = ({
       <div className="flex flex-col flex-grow pl-5">
         <div className="flex justify-between">
           <p>
-            {manufacture} > {brand}
+            {manufacture} &gt; {brand}
           </p>
           <HeartIcon className="h-7 cursor-pointer" />
         </div>
