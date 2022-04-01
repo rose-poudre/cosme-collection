@@ -32,16 +32,24 @@ const ComparisonCard = ({
                   <thead>
                     <tr className="bg-primary text-center">
                       <th>画像</th>
-                      <th>販売会社</th>
+                      <th>メーカー</th>
                       <th>ブランド</th>
                       <th>商品名</th>
                       <th>カテゴリ</th>
+                      <th>有効成分</th>
                       <th>商品リンク</th>
                     </tr>
                   </thead>
                   <tbody>
                     {products.map(
-                      ({ img, manufacture, brand, product, categorySmall }) => (
+                      ({
+                        img,
+                        manufacture,
+                        brand,
+                        product,
+                        categorySmall,
+                        activeIngredientName,
+                      }) => (
                         <tr onClick={() => handlClick(img)}>
                           <td className="tdBgWhite">
                             <div className="bg-contain bg-center relative h-10 p-10 mr-10 ml-10 flex-shrink-0">
@@ -59,6 +67,7 @@ const ComparisonCard = ({
                           <td className="tdBgWhite">{brand}</td>
                           <td className="tdBgGray">{product}</td>
                           <td className="tdBgWhite">{categorySmall}</td>
+                          <td className="tdBgWhite">{activeIngredientName}</td>
                           <td className="tdBgGray">
                             <div
                               onClick={() => handlClick(img)}

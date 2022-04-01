@@ -10,7 +10,7 @@ import ChooseBrand from "../components/ChooseBrand";
 
 const Productlist = ({ searchResult }) => {
   const router = useRouter();
-  const { brand, categorySmall, manufacture, activeIngredientName, img } =
+  const { brand, categorySmall, manufacture, activeIngredientName } =
     router.query;
 
   const [products, setProducts] = useState([]);
@@ -22,118 +22,35 @@ const Productlist = ({ searchResult }) => {
     where("brand", "not-in", ["アクア", "美容液"])
   );
 
-  // useEffect(() => {
-  //   const getProducts = async () => {
-  //     const data = await getDocs(chooseProduct);
-  //     console.log(data);
-  //     console.log(productsCollectionRef);
-
-  //     let product = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-  //     if (brand) {
-  //       product = product.filter((output, index) => {
-  //         return output.brand.includes(brand);
-  //       });
-  //     }
-  //     setProducts(product);
-  //   };
-  //   getProducts();
-  // }, [router.query.brand]);
-  // console.log(products);
-
-  if (brand) {
-    useEffect(() => {
-      // const exclusionFilter = searchInput;
-      // console.log(exclusionFilter + 1);
-      const getProducts = async () => {
-        const data = await getDocs(chooseProduct);
-
-        let product = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-        // if ((brand = searchInput.match(searchInput))) {
+  useEffect(() => {
+    const getProducts = async () => {
+      const data = await getDocs(chooseProduct);
+      let product = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      if (brand) {
         product = product.filter((output, index) => {
           return output.brand.includes(brand);
         });
-
         setProducts(product);
-      };
-      getProducts();
-    }, [router.query.brand]);
-  } else if (manufacture) {
-    useEffect(() => {
-      const getProducts = async () => {
-        const data = await getDocs(chooseProduct);
-        console.log(data);
-        console.log(productsCollectionRef);
-
-        let product = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-
+      } else if (manufacture) {
         product = product.filter((output, index) => {
           return output.manufacture.includes(manufacture);
         });
-        console.log(product);
-        console.log("呼ばれてる？");
-
         setProducts(product);
-      };
-      getProducts();
-    }, [router.query.manufacture]);
-  } else if (categorySmall) {
-    useEffect(() => {
-      const getProducts = async () => {
-        const data = await getDocs(chooseProduct);
-        console.log(data);
-        console.log(productsCollectionRef);
-
-        let product = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-
+      } else if (categorySmall) {
         product = product.filter((output, index) => {
           return output.categorySmall.includes(categorySmall);
         });
-        console.log(product);
-        console.log("呼ばれてる？");
-
         setProducts(product);
-      };
-      getProducts();
-    }, [router.query.categorySmall]);
-  } else if (activeIngredientName) {
-    useEffect(() => {
-      const getProducts = async () => {
-        const data = await getDocs(chooseProduct);
-        console.log(data);
-        console.log(productsCollectionRef);
-
-        let product = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-
+      } else if (activeIngredientName) {
         product = product.filter((output, index) => {
           return output.activeIngredientName.includes(activeIngredientName);
         });
-        console.log(product);
-        console.log("呼ばれてる？");
-
         setProducts(product);
-      };
-      getProducts();
-    }, [router.query.activeIngredientName]);
-  } else {
-    useEffect(() => {
-      const getProducts = async () => {
-        const data = await getDocs(chooseProduct);
-        console.log(data);
-        console.log(productsCollectionRef);
-
-        let product = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-
-        product = product.filter((output, index) => {
-          return output.img.includes(img);
-        });
-        console.log(product);
-        console.log("呼ばれてる？");
-
-        setProducts(product);
-      };
-      getProducts();
-    }, [router.query.img]);
-  }
+      } else {
+      }
+    };
+    getProducts();
+  }, []);
 
   return (
     <div>
