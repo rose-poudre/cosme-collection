@@ -43,11 +43,10 @@ const ComparisonCard = ({ products }) => {
                         categorySmall,
                         activeIngredientName,
                       }) => (
-                        <tr onClick={() => handlClick(img)}>
+                        <tr onClick={() => handlClick(img)} key={img}>
                           <td className="tdBgWhite">
                             <div className="bg-contain bg-center relative h-10 p-10 mr-10 ml-10 flex-shrink-0">
                               <Image
-                                key={img}
                                 src={img}
                                 layout="fill"
                                 // objectFit="cover"

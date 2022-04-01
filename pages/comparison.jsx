@@ -65,7 +65,7 @@ const Comparison = ({ placeholder }) => {
           </div>
 
           <div>
-            <ComparisonCard products={products} key={img} />
+            <ComparisonCard products={products} />
           </div>
         </section>
       </main>
