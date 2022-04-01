@@ -33,30 +33,76 @@ const ComparisonTest20220331 = ({ placeholder }) => {
   //   });
   // };
 
-  useEffect(() => {
-    const getProducts = async () => {
-      const data = await getDocs(chooseProduct);
-      let product = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      if (brand) {
+  if (brand) {
+    useEffect(() => {
+      // const exclusionFilter = searchInput;
+      // console.log(exclusionFilter + 1);
+      const getProducts = async () => {
+        const data = await getDocs(chooseProduct);
+        console.log(data);
+        console.log(productsCollectionRef);
+
+        let product = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        // if ((brand = searchInput.match(searchInput))) {
         product = product.filter((output, index) => {
           return output.brand.includes(brand);
         });
+        console.log(product);
+        console.log("呼ばれてる？");
+        // } else {
+        //   console.log("ヒットしません");
+        // }
         setProducts(product);
-      } else if (manufacture) {
+      };
+      getProducts();
+    }, [router.query.brand]);
+  } else if (manufacture) {
+    useEffect(() => {
+      // const exclusionFilter = searchInput;
+      // console.log(exclusionFilter + 1);
+      const getProducts = async () => {
+        const data = await getDocs(chooseProduct);
+        console.log(data);
+        console.log(productsCollectionRef);
+
+        let product = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        // if ((brand = searchInput.match(searchInput))) {
         product = product.filter((output, index) => {
           return output.manufacture.includes(manufacture);
         });
+        console.log(product);
+        console.log("呼ばれてる？");
+        // } else {
+        //   console.log("ヒットしません");
+        // }
         setProducts(product);
-      } else if (categorySmall) {
+      };
+      getProducts();
+    }, [router.query.manufacture]);
+  } else {
+    useEffect(() => {
+      // const exclusionFilter = searchInput;
+      // console.log(exclusionFilter + 1);
+      const getProducts = async () => {
+        const data = await getDocs(chooseProduct);
+        console.log(data);
+        console.log(productsCollectionRef);
+
+        let product = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        // if ((brand = searchInput.match(searchInput))) {
         product = product.filter((output, index) => {
           return output.categorySmall.includes(categorySmall);
         });
+        console.log(product);
+        console.log("呼ばれてる？");
+        // } else {
+        //   console.log("ヒットしません");
+        // }
         setProducts(product);
-      } else {
-      }
-    };
-    getProducts();
-  }, []);
+      };
+      getProducts();
+    }, [router.query.categorySmall]);
+  }
 
   return (
     <div>
