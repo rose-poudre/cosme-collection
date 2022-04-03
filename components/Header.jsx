@@ -9,10 +9,6 @@ const Header = ({ placeholder }) => {
   const [searchInput, setSearchInput] = useState("");
   const router = useRouter();
 
-  const resetInput = () => {
-    setSearchInput("");
-  };
-
   const search = () => {
     router.push({
       pathname: "/productlist",

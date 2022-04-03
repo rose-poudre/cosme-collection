@@ -157,6 +157,12 @@
     transition: all var(--speed) ease;
   }
 
+  table {
+    table-layout: fixed;
+    width: 100%;
+    overflow: hidden;
+  }
+
   th {
     background-color: #ca8a04;
     width: 16.666667%;
