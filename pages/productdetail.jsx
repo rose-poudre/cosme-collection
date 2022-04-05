@@ -109,7 +109,7 @@ const Productdetail = ({ searchResult }) => {
             )}
           </div>
         </section>
-        <section class="flex-grow pt-14 px-6">
+        <section className="flex-grow pt-14 px-6">
           <h2 className="text-2xl font-semibold py-8">
             「{activeIngredientName}」を含む商品
           </h2>
