@@ -2,10 +2,13 @@ import React from "react";
 import Image from "next/image";
 import Router from "next/router";
 
-const handlClick = (img) => {
+const handlClick = (img, activeIngredientName) => {
   Router.push({
     pathname: "/productdetail",
-    query: { img },
+    query: {
+      img: img,
+      activeIngredientName: activeIngredientName,
+    },
   });
 };
 
@@ -21,7 +24,7 @@ const ComparisonCard = ({ products }) => {
           <div className="flex flex-wrap -mx-4">
             <div className="w-full px-4">
               <div className="max-w-full overflow-x-auto">
-                <table className="table-auto w-full">
+                <table className="table-style table-auto w-full">
                   <thead>
                     <tr className="bg-primary text-center">
                       <th>画像</th>

@@ -3,10 +3,10 @@ import { HeartIcon } from "@heroicons/react/solid";
 import { StarIcon } from "@heroicons/react/solid";
 import Router from "next/router";
 
-const handlClick = (img) => {
+const handlClick = (img, activeIngredientName) => {
   Router.push({
     pathname: "/productdetail",
-    query: { img },
+    query: { img, activeIngredientName },
   });
 };
 

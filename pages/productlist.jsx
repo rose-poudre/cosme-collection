@@ -16,14 +16,9 @@ const Productlist = ({ searchResult }) => {
 
   const productsCollectionRef = collection(db, "products");
 
-  const chooseProduct = query(
-    productsCollectionRef,
-    where("brand", "not-in", ["アクア", "美容液"])
-  );
-
   useEffect(() => {
     const getProducts = async () => {
-      const data = await getDocs(chooseProduct);
+      const data = await getDocs(productsCollectionRef);
       let product = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       if (brand) {
         product = product.filter((output, index) => {

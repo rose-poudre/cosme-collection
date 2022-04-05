@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+  input {
+    outline: none;
+  }
+
   .button {
     @apply px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100 ease-out;
   }
@@ -157,10 +161,20 @@
     transition: all var(--speed) ease;
   }
 
-  table {
+  /* table {
     table-layout: fixed;
     width: 100%;
     overflow: hidden;
+  } */
+
+  table {
+    max-width: 100%;
+    background-color: #f9c;
+  }
+
+  .table-style {
+    /* left: calc(100vw - theme("spacing.14")); */
+    left: 100vw;
   }
 
   th {
@@ -198,5 +212,13 @@
     position: sticky;
     left: 0;
     border-right: solid 2px #aaa;
+  }
+
+  label.max_300px {
+    display: block;
+    width: 82%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 }

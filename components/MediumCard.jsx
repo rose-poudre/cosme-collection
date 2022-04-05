@@ -11,6 +11,7 @@ const MediumCard = ({ img, product, categorySmall, activeIngredientName }) => {
       pathname: "/productdetail",
       query: {
         img: img,
+        activeIngredientName: activeIngredientName,
       },
     });
   };

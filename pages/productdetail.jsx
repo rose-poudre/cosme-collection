@@ -2,28 +2,26 @@ import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useRouter } from "next/router";
-import { format } from "date-fns";
 import { useState, useEffect } from "react";
 import { db } from "../public/src/firebase-config";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import ProductDetailCard from "../components/ProductDetailCard";
 import ChooseBrand from "../components/ChooseBrand";
+import SameIngredientRecommendationCard from "../components/SameIngredientRecommendationCard";
+import { data } from "autoprefixer";
 
 const Productdetail = ({ searchResult }) => {
   const router = useRouter();
-  const { img } = router.query;
+  const { img, activeIngredientName } = router.query;
 
   const [products, setProducts] = useState([]);
-  const productsCollectionRef = collection(db, "products");
+  const [recommendProducts, setRecommendedProducts] = useState([]);
 
-  const chooseProduct = query(
-    productsCollectionRef,
-    where("brand", "not-in", ["アクア", "美容液"])
-  );
+  const productsCollectionRef = collection(db, "products");
 
   useEffect(() => {
     const getProducts = async () => {
-      const data = await getDocs(chooseProduct);
+      const data = await getDocs(productsCollectionRef);
 
       let product = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       if (img) {
@@ -36,6 +34,28 @@ const Productdetail = ({ searchResult }) => {
     getProducts();
   }, [router.query.img]);
   console.log(products);
+  console.log(productsCollectionRef);
+
+  useEffect(() => {
+    const getRecommendedProducts = async () => {
+      const recommendedData = await getDocs(productsCollectionRef);
+
+      let recommendedProduct = recommendedData.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      console.log(recommendedProduct);
+      if (activeIngredientName) {
+        recommendedProduct = recommendedProduct.filter((output, index) => {
+          return output.activeIngredientName.includes(activeIngredientName);
+        });
+      }
+      setRecommendedProducts(recommendedProduct);
+    };
+    getRecommendedProducts();
+  }, [router.query.activeIngredientName]);
+  console.log(recommendProducts);
+  console.log(productsCollectionRef);
 
   return (
     <div>
@@ -48,15 +68,9 @@ const Productdetail = ({ searchResult }) => {
       {/* <ProductCard /> */}
       <Header />
 
-      <main className="flex">
+      <main className="">
         <section className="flex-grow pt-14 px-6">
-          {/* <p className="text-tx">
-            300+ Stays - {range}- for {noOfGuests} guests
-          </p> */}
-
-          <h1 className="text-3xl font-semibold mt-2 mb-6">
-            {/* 「{categorySmall}」 を含む検索結果 */}
-          </h1>
+          <h1 className="text-3xl font-semibold mt-2 mb-6"></h1>
 
           <div className="hidden sm:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
             <ChooseBrand />
@@ -69,6 +83,7 @@ const Productdetail = ({ searchResult }) => {
                 manufacture,
                 brand,
                 product,
+                activeIngredientName,
                 allIngredientName,
                 categorySmall,
                 price,
@@ -81,6 +96,7 @@ const Productdetail = ({ searchResult }) => {
                   img={img}
                   manufacture={manufacture}
                   brand={brand}
+                  activeIngredientName={activeIngredientName}
                   allIngredientName={allIngredientName}
                   categorySmall={categorySmall}
                   product={product}
@@ -88,6 +104,31 @@ const Productdetail = ({ searchResult }) => {
                   capacity={capacity}
                   unit={unit}
                   star_point={star_point}
+                />
+              )
+            )}
+          </div>
+        </section>
+        <section class="flex-grow pt-14 px-6">
+          <h2 className="text-2xl font-semibold py-8">
+            「{activeIngredientName}」を含む商品
+          </h2>
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-4 xl:grid-cols-6 p-3 -ml-3">
+            {recommendProducts.map(
+              ({
+                img,
+                product,
+                brand,
+                categorySmall,
+                activeIngredientName,
+              }) => (
+                <SameIngredientRecommendationCard
+                  key={img}
+                  img={img}
+                  product={product}
+                  brand={brand}
+                  categorySmall={categorySmall}
+                  activeIngredientName={activeIngredientName}
                 />
               )
             )}

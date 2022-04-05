@@ -16,6 +16,7 @@ const ProductDetailCard = ({
   brand,
   categorySmall,
   product,
+  activeIngredientName,
   allIngredientName,
   release_date,
   price,
@@ -25,7 +26,7 @@ const ProductDetailCard = ({
 }) => {
   return (
     <div
-      className="flex py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out first:border-t"
+      className="gird grid-col-3 sm:flex py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out first:border-t"
       onClick={() => handlClick(product)}
     >
       {/* <div className="bg-contain bg-center relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0"> */}
@@ -49,7 +50,12 @@ const ProductDetailCard = ({
 
         <h4 className="text-xl">{product}</h4>
         <div className="border-b w-10 pt-2" />
-        <p className="pt-2 text-sm text-gray-600 flex-grow">{categorySmall}</p>
+        <p className="pt-2 text-yellow-600 flex-grow mb-5">{categorySmall}</p>
+        <div>有効成分</div>
+        <p className="pt-2 text-sm bg-yellow-500 rounded text-white">
+          {activeIngredientName}
+        </p>
+        <div className="mt-5">成分</div>
         <p className="pt-2 text-sm text-gray-400 flex-grow">
           {allIngredientName}
         </p>

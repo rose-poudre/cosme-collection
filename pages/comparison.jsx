@@ -11,21 +11,15 @@ import ComparisonCard from "../components/ComparisonCard";
 const Comparison = ({ placeholder }) => {
   const router = useRouter();
 
-  const { manufacture, brand, categorySmall } = router.query;
+  const { manufacture, brand, categorySmall, allIngredientName } = router.query;
 
   const [products, setProducts] = useState([]);
   const productsCollectionRef = collection(db, "products");
 
-  const chooseProduct = query(
-    productsCollectionRef,
-    where("brand", "not-in", ["アクア", "エリクシール"])
-  );
-
-  const notintest20220403 = ["エリクシール"];
-
   useEffect(() => {
     const getProducts = async () => {
-      const data = await getDocs(chooseProduct);
+      // const data = await getDocs(chooseProduct);
+      const data = await getDocs(productsCollectionRef);
       let product = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
 
       product = product.filter((output, index) => {
@@ -38,6 +32,10 @@ const Comparison = ({ placeholder }) => {
 
       product = product.filter((output, index) => {
         return output.categorySmall.includes(categorySmall);
+      });
+
+      product = product.filter((output, index) => {
+        return output.allIngredientName.includes(allIngredientName);
       });
 
       setProducts(product);
@@ -53,7 +51,7 @@ const Comparison = ({ placeholder }) => {
     excludeIngredient.forEach((name) => {
       setProducts(
         products.filter((output, index) => {
-          return output.brand.indexOf(name) === -1;
+          return output.allIngredientName.indexOf(name) === -1;
         })
       );
     });
@@ -63,23 +61,10 @@ const Comparison = ({ placeholder }) => {
     <div>
       <Header />
 
-      <main className="flex mb-20">
+      <main className="overflow-scroll sm:flex sm:mb-20">
         <section className="flex-grow pt-14 px-6">
-          {/* <h1 className="text-3xl font-semibold mt-2 mb-6">
-            「{brand}」 を含む検索結果
-          </h1> */}
-          {/* <h1 className="text-3xl font-semibold mt-2 mb-6">結果を絞り込む</h1>
-          <div>
-            <input
-              id="excludeSearchButton"
-              type="text"
-              className="bg-gray-500"
-            ></input>
-            <button onClick={excludeSearch}>決定</button>
-          </div> */}
-
           <h1 className="text-3xl font-semibold mt-2 mb-6">結果を絞り込む</h1>
-          <div className="sticky top-0 z-50 grid grid-cols-3 bg-white mb-10">
+          <div className="top-0 z-50 grid grid-cols-3 bg-white mb-10">
             <div className="flex">
               <input
                 id="excludeSearchButton"
@@ -99,11 +84,11 @@ const Comparison = ({ placeholder }) => {
           <div className="hidden sm:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
             <ChooseBrand />
           </div>
-          <section>
-            <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3">
+          <div>
+            <div className="inline-flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3">
               <ComparisonCard products={products} />
             </div>
-          </section>
+          </div>
         </section>
       </main>
       <Footer />
