@@ -23,6 +23,7 @@ const ProductDetailCard = ({
   capacity,
   unit,
   star_point,
+  descriptionOfItem,
 }) => {
   return (
     <div
@@ -30,7 +31,7 @@ const ProductDetailCard = ({
       onClick={() => handlClick(product)}
     >
       {/* <div className="bg-contain bg-center relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0"> */}
-      <div className="bg-contain bg-center relative h-60 p-10 mr-20 ml-20 flex-shrink-0">
+      <div className="bg-contain bg-center relative h-60 p-10 mr-20 ml-20 mb-5 flex-shrink-0">
         <Image
           src={img}
           layout="fill"
@@ -51,6 +52,10 @@ const ProductDetailCard = ({
         <h4 className="text-xl">{product}</h4>
         <div className="border-b w-10 pt-2" />
         <p className="pt-2 text-yellow-600 flex-grow mb-5">{categorySmall}</p>
+        <p className="pt-2 text-sm text-gray-800 flex-grow mb-5">
+          {descriptionOfItem}
+        </p>
+
         <div>有効成分</div>
         <p className="pt-2 text-sm bg-yellow-500 rounded text-white">
           {activeIngredientName}

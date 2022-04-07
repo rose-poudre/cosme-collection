@@ -97,13 +97,13 @@ const FilterdCard = ({ placeholder }) => {
         <div className="flex mt-10">
           <button
             onClick={resetInput}
-            className="flex-grow text-gray-500 px-20 py-5"
+            className="flex-grow text-gray-500 w-20 py-5 cursor-pointer hover:scale-105 transform transition duration-300 ease-out"
           >
             Cancel
           </button>
           <button
             onClick={search}
-            className="flex-grow text-white bg-yellow-500 px-20 py-2 rounded-sm"
+            className="flex-grow text-white bg-yellow-500 w-20 py-2 rounded-sm cursor-pointer hover:scale-105 transform transition duration-300 ease-out"
           >
             Search
           </button>

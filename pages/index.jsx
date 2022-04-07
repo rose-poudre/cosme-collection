@@ -75,7 +75,9 @@ const Index = ({ searchResult, cardsData }) => {
 
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
         <section className="pt-6">
-          <h2 className="text-4xl font-semibold pd-5">肌のお悩み</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold mt-10 py-8">
+            注目の成分
+          </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {skintroubles?.map(({ img, trouble }) => (
@@ -83,9 +85,18 @@ const Index = ({ searchResult, cardsData }) => {
             ))}
           </div>
         </section>
+        <section>
+          <h2 className="text-3xl md:text-4xl font-semibold mt-10 py-8">
+            有効成分から探す
+          </h2>
+          <div className="text-wrap inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap"></div>
+          <ChooseActiveIngredientName />
+        </section>
 
         <section>
-          <h2 className="text-4xl font-semibold py-8">注目の商品</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold mt-10 py-8">
+            注目の商品
+          </h2>
           <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3">
             {products?.map(
               ({
@@ -108,20 +119,20 @@ const Index = ({ searchResult, cardsData }) => {
           </div>
         </section>
         <section>
-          <h2 className="text-4xl font-semibold py-8">ブランドから探す</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold mt-10 py-8">
+            ブランドから探す
+          </h2>
           <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap"></div>
           <ChooseBrand />
         </section>
         <section>
-          <h2 className="text-4xl font-semibold py-8">カテゴリから探す</h2>
-          <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap"></div>
+          <h2 className="text-3xl md:text-4xl font-semibold mt-10 py-8">
+            カテゴリから探す
+          </h2>
+          <div className="text-wrap inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap"></div>
           <ChooseCategorySmall />
         </section>
-        <section>
-          <h2 className="text-4xl font-semibold py-8">有効成分から探す</h2>
-          <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap"></div>
-          <ChooseActiveIngredientName />
-        </section>
+
         <TopBottomBanner
           img="https://firebasestorage.googleapis.com/v0/b/rikejo-cosme.appspot.com/o/cosmetics-topbg.jpg?alt=media&token=d5556641-eaf3-4793-98e1-4bdbac2995ff"
           title="What's the difference?"

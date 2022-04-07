@@ -9,7 +9,7 @@ import ProductDetailCard from "../components/ProductDetailCard";
 import ChooseBrand from "../components/ChooseBrand";
 import SameIngredientRecommendationCard from "../components/SameIngredientRecommendationCard";
 import SameBrandRecommendationCard from "../components/SameBrandRecommendationCard";
-import SameCategorySmallRecommendationCard from "../components/SameCategorySmallRecommendationCard";
+import { data } from "autoprefixer";
 
 const Productdetail = ({ searchResult }) => {
   const router = useRouter();
@@ -18,10 +18,6 @@ const Productdetail = ({ searchResult }) => {
 
   const [products, setProducts] = useState([]);
   const [recommendProducts, setRecommendedProducts] = useState([]);
-  const [sameBrandProducts, setSameBrandProducts] = useState([]);
-  const [sameCategorySmallProducts, setSameCategorySmallProducts] = useState(
-    []
-  );
 
   const productsCollectionRef = collection(db, "products");
 
@@ -39,6 +35,8 @@ const Productdetail = ({ searchResult }) => {
     };
     getProducts();
   }, [router.query.img]);
+  console.log(products);
+  console.log(productsCollectionRef);
 
   useEffect(() => {
     const getRecommendedProducts = async () => {
@@ -58,47 +56,8 @@ const Productdetail = ({ searchResult }) => {
     };
     getRecommendedProducts();
   }, [router.query]);
-
-  useEffect(() => {
-    const getSameBrandProducts = async () => {
-      const sameBrandProductData = await getDocs(productsCollectionRef);
-
-      let sameBrandProduct = sameBrandProductData.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-
-      if (brand) {
-        sameBrandProduct = sameBrandProduct.filter((output, index) => {
-          return output.brand.includes(brand);
-        });
-      }
-      setSameBrandProducts(sameBrandProduct);
-    };
-    getSameBrandProducts();
-  }, [router.query]);
-
-  useEffect(() => {
-    const getSameCategorySmallProducts = async () => {
-      const sameCategorySmallProductData = await getDocs(productsCollectionRef);
-
-      let sameCategorySmallProduct = sameCategorySmallProductData.docs.map(
-        (doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        })
-      );
-      if (categorySmall) {
-        sameCategorySmallProduct = sameCategorySmallProduct.filter(
-          (output, index) => {
-            return output.categorySmall.includes(categorySmall);
-          }
-        );
-      }
-      setSameCategorySmallProducts(sameCategorySmallProduct);
-    };
-    getSameCategorySmallProducts();
-  }, [router.query]);
+  console.log(recommendProducts);
+  console.log(productsCollectionRef);
 
   return (
     <div>
@@ -115,6 +74,10 @@ const Productdetail = ({ searchResult }) => {
         <section className="flex-grow pt-14 px-6">
           <h1 className="text-3xl font-semibold mt-2 mb-6"></h1>
 
+          <div className="hidden sm:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
+            <ChooseBrand />
+          </div>
+
           <div className="flex flex-col">
             {products.map(
               ({
@@ -129,7 +92,6 @@ const Productdetail = ({ searchResult }) => {
                 capacity,
                 unit,
                 star_point,
-                descriptionOfItem,
               }) => (
                 <ProductDetailCard
                   key={img}
@@ -144,7 +106,6 @@ const Productdetail = ({ searchResult }) => {
                   capacity={capacity}
                   unit={unit}
                   star_point={star_point}
-                  descriptionOfItem={descriptionOfItem}
                 />
               )
             )}
@@ -178,21 +139,20 @@ const Productdetail = ({ searchResult }) => {
         </section>
         <section className="flex-grow pt-14 px-6">
           <h2 className="text-2xl font-semibold py-8">
-            同ブランド「{brand}」の商品
+            同ブランド「{activeIngredientName}」の商品
           </h2>
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 p-3 -ml-3">
-            {sameBrandProducts.map(
+            {recommendProducts.map(
               ({
                 img,
                 product,
-                brand,
+
                 categorySmall,
                 activeIngredientName,
               }) => (
                 <SameBrandRecommendationCard
                   key={img}
                   img={img}
-                  brand={brand}
                   product={product}
                   categorySmall={categorySmall}
                   activeIngredientName={activeIngredientName}
@@ -200,38 +160,6 @@ const Productdetail = ({ searchResult }) => {
               )
             )}
           </div>
-        </section>
-        <section className="flex-grow pt-14 px-6">
-          <h2 className="text-2xl font-semibold py-8">
-            同カテゴリ「{categorySmall}」の商品
-          </h2>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 p-3 -ml-3">
-            {sameCategorySmallProducts.map(
-              ({
-                img,
-                product,
-                brand,
-                categorySmall,
-                activeIngredientName,
-              }) => (
-                <SameCategorySmallRecommendationCard
-                  key={img}
-                  img={img}
-                  brand={brand}
-                  product={product}
-                  categorySmall={categorySmall}
-                  activeIngredientName={activeIngredientName}
-                />
-              )
-            )}
-          </div>
-        </section>
-        <section className="mb-20 ml-6">
-          <h2 className="text-3xl md:text-4xl font-semibold mt-10 py-8">
-            ブランドから探す
-          </h2>
-          <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap"></div>
-          <ChooseBrand />
         </section>
       </main>
       <Footer />

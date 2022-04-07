@@ -10,7 +10,7 @@ const handlClick = (brand) => {
 
 function ChooseBrand() {
   return (
-    <div className="hidden sm:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
+    <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3 text-gray-800 whitespace-nowrap">
       <button className="button" onClick={() => handlClick("アクアレーベル")}>
         アクアレーベル
       </button>
@@ -19,6 +19,12 @@ function ChooseBrand() {
       </button>
       <button className="button" onClick={() => handlClick("トゥベール")}>
         トゥベール
+      </button>
+      <button className="button" onClick={() => handlClick("プラスリストア")}>
+        プラスリストア
+      </button>
+      <button className="button" onClick={() => handlClick("オンリーミネラル")}>
+        オンリーミネラル
       </button>
     </div>
   );

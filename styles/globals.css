@@ -8,13 +8,13 @@
   }
 
   .button {
-    @apply px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100 ease-out;
+    @apply px-4 py-2 border rounded-full cursor-pointer hover:bg-yellow-200 hover:shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100 ease-out;
   }
 
   :root {
-    --bg: #242526;
+    --bg: #cc9900;
     --bg-accent: #484a4d;
-    --text-color: #dadce1;
+    --text-color: #fff;
     --nav-size: 60px;
     --border: 1px sold #474a4d;
     --border-radius: 8px;
@@ -39,10 +39,6 @@
     border-bottom: var(--border);
   }
 
-  .category {
-    background-color: #484a4d;
-  }
-
   .category-title {
     max-width: 100%;
     height: 100%;
@@ -61,7 +57,6 @@
     --button-size: calc(var(--nav-size) * 0.5);
     width: var(--button-size);
     height: var(--button-size);
-    background-color: #484a4d;
     border-radius: 50%;
     padding: 5px;
     margin: 2px;
@@ -84,7 +79,7 @@
   /* Dropdown Menu */
   .dropdown {
     position: absolute;
-    top: 58px;
+    top: 80px;
     width: 300px;
     transform: translateX(-45%);
     background-color: var(--bg);
@@ -113,7 +108,7 @@
   }
 
   .menu-item:hover {
-    background-color: #525457;
+    background-color: #ffcc33;
   }
 
   .icon-right {
@@ -161,17 +156,6 @@
     transition: all var(--speed) ease;
   }
 
-  /* table {
-    table-layout: fixed;
-    width: 100%;
-    overflow: hidden;
-  } */
-
-  table {
-    max-width: 100%;
-    background-color: #f9c;
-  }
-
   .table-style {
     /* left: calc(100vw - theme("spacing.14")); */
     left: 100vw;
@@ -179,39 +163,42 @@
 
   th {
     background-color: #ca8a04;
-    width: 16.666667%;
-    min-width: 160px;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    padding: 0 auto;
+    padding: 0 6px;
     font-weight: 600;
     color: #fff;
+    width: 100px !important;
+    font-size: 14px;
   }
 
   .tdBgWhite,
   .tdBgGray {
-    text-align: center;
-    padding: 1.25rem 0.5rem;
+    padding: 0.25rem 0.5rem;
     font-weight: 500;
-    font-size: 1rem;
-    line-height: 1.5rem;
     border-bottom: 1px solid #e8e8e8;
+    text-align: left;
+    font-size: 14px;
   }
 
   .tdBgWhite {
     background-color: #fff;
+    padding: 4px;
+    margin: 4px;
   }
 
   .tdBgGray {
     background-color: #eee;
   }
 
-  table td:first-child,
-  table th:first-child {
+  table th:first-child,
+  table td:first-child {
     /*先頭列を左に固定*/
     position: sticky;
     left: 0;
     border-right: solid 2px #aaa;
+  }
+
+  table {
+    table-layout: fixed;
   }
 
   label.max_300px {
@@ -220,5 +207,24 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+  }
+
+  .tb-text-wrap {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .text-wrap {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .keyword-button {
+    margin-left: 0 !important;
+    margin-right: 12px !important;
+    margin-bottom: 12px !important;
   }
 }

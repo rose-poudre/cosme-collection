@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-const SameIngredientRecommendationCard = ({
+const SameBrandRecommendationCard = ({
   img,
   product,
   categorySmall,
@@ -9,7 +9,6 @@ const SameIngredientRecommendationCard = ({
   brand,
 }) => {
   const router = useRouter();
-  // const { brand } = router.query;
 
   const search = () => {
     router.push({
@@ -43,12 +42,8 @@ const SameIngredientRecommendationCard = ({
       <label className="max_300px text-xs lg:text-sm mt-0 mx-3">
         {product}
       </label>
-      <h3 className="text-xs lg:text-sm text-gray-400 mb-0 mx-3">
-        ＜ブランド＞
-      </h3>
-      <label className="max_300px text-xs lg:text-sm mt-0 mx-3">{brand}</label>
     </div>
   );
 };
 
-export default SameIngredientRecommendationCard;
+export default SameBrandRecommendationCard;

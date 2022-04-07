@@ -2,12 +2,21 @@ import React from "react";
 import Image from "next/image";
 import Router from "next/router";
 
-const handlClick = (img, activeIngredientName) => {
+const handlClick = (
+  img,
+  product,
+  categorySmall,
+  activeIngredientName,
+  brand
+) => {
   Router.push({
     pathname: "/productdetail",
     query: {
       img: img,
+      product: product,
+      categorySmall: categorySmall,
       activeIngredientName: activeIngredientName,
+      brand: brand,
     },
   });
 };
@@ -26,9 +35,9 @@ const ComparisonCard = ({ products }) => {
               <div className="max-w-full overflow-x-auto">
                 <table className="table-style table-auto w-full">
                   <thead>
-                    <tr className="bg-primary text-center">
-                      <th>画像</th>
-                      <th>メーカー</th>
+                    <tr className="bg-primary md:text-base text-center md:text-center">
+                      <th>商品画像</th>
+                      <th>販売元</th>
                       <th>ブランド</th>
                       <th>商品名</th>
                       <th>カテゴリ</th>
@@ -44,11 +53,24 @@ const ComparisonCard = ({ products }) => {
                         brand,
                         product,
                         categorySmall,
+                        categoryMiddle,
+                        categoryBig,
                         activeIngredientName,
                       }) => (
-                        <tr onClick={() => handlClick(img)} key={img}>
+                        <tr
+                          onClick={() =>
+                            handlClick(
+                              img,
+                              product,
+                              categorySmall,
+                              activeIngredientName,
+                              brand
+                            )
+                          }
+                          key={img}
+                        >
                           <td className="tdBgWhite">
-                            <div className="bg-contain bg-center relative h-10 p-10 mr-10 ml-10 flex-shrink-0">
+                            <div className="bg-contain bg-center relative h-10 p-0 md:p-10 mr-0 md:mr-10 ml-0 md:ml-10 flex-shrink-0">
                               <Image
                                 src={img}
                                 layout="fill"
@@ -58,15 +80,27 @@ const ComparisonCard = ({ products }) => {
                               />
                             </div>
                           </td>
-                          <td className="tdBgGray">{manufacture}</td>
-                          <td className="tdBgWhite">{brand}</td>
-                          <td className="tdBgGray">{product}</td>
-                          <td className="tdBgWhite">{categorySmall}</td>
-                          <td className="tdBgWhite">{activeIngredientName}</td>
                           <td className="tdBgGray">
+                            <div className="tb-text-wrap">{manufacture}</div>
+                          </td>
+                          <td className="tdBgWhite">
+                            <div className="tb-text-wrap">{brand}</div>
+                          </td>
+                          <td className="tdBgGray">
+                            <div className="tb-text-wrap">{product}</div>
+                          </td>
+                          <td className="tdBgWhite">
+                            <div className="tb-text-wrap">{categorySmall}</div>
+                          </td>
+                          <td className="tdBgGray">
+                            <div className="tb-text-wrap">
+                              {activeIngredientName}
+                            </div>
+                          </td>
+                          <td className="tdBgWhite">
                             <div
                               onClick={() => handlClick(img)}
-                              className="tdBgGray py-2 inline-block
+                              className="tdBgGray py-1 md:py-2 inline-block
 																	rounded
                                   bg-yellow-600
                                   text-white

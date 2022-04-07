@@ -12,7 +12,7 @@ const Banner = () => {
         objectFit="cover"
       />
       <div className="absolute top-3/4 w-full text-center">
-        <p className="text-sm sm:text-lg">有効成分は含まれている？</p>
+        {/* <p className="text-sm sm:text-lg">有効成分は含まれている？</p> */}
         <button
           onClick={() => router.push("/filtered")}
           className="text-yellow-600 bg-white px-10 py-4 shadow-md rounded-full font-bold my-3 hover:shadow-xl active:scale-90 transition duration-150"
