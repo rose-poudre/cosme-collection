@@ -25,11 +25,11 @@ const MediumCard = ({
   console.log(search);
 
   return (
-    <div className="cursor-pointer hover:scale-105 transform transition duration-300 ease-out">
+    <div className="bg-white cursor-pointer hover:scale-105 hover:shadow-xl transform transition duration-300 ease-out p-2">
       <div onClick={search} className="relative h-60 w-60">
         <Image src={img} layout="fill" className="rounded-xl object-contain" />
       </div>
-      <h3 className="text-md py-2 m-3 bg-yellow-600 text-white text-center text-semibold">
+      <h3 className="text-md py-2 m-3 bg-gold-700 text-white text-center text-semibold">
         {categorySmall}
       </h3>
       <h3 className="text-md text-gray-400 mb-0 mx-3">＜有効成分＞</h3>

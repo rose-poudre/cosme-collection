@@ -44,7 +44,7 @@ const ProductCard = ({
 }) => {
   return (
     <div
-      className="gird grid-col-3 sm:flex py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out first:border-t"
+      className="bg-white gird grid-col-3 sm:flex py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out first:border-t"
       onClick={() =>
         handlClick(
           img,

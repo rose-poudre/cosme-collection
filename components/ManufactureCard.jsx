@@ -60,7 +60,7 @@ export default function PriceCard() {
                     key={manufacture.id}
                     className={({ active }) =>
                       `cursor-default select-none relative py-2 pl-10 pr-4 ${
-                        active ? "text-white bg-yellow-600" : "text-gray-900"
+                        active ? "text-white bg-gold-600" : "text-gray-900"
                       }`
                     }
                     value={manufacture}
@@ -77,7 +77,7 @@ export default function PriceCard() {
                         {selected ? (
                           <span
                             className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
-                              active ? "text-white" : "text-yellow-600"
+                              active ? "text-white" : "text-gold-600"
                             }`}
                           >
                             <CheckIcon className="w-5 h-5" aria-hidden="true" />

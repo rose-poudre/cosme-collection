@@ -26,17 +26,17 @@ const SameIngredientRecommendationCard = ({
   console.log(search);
 
   return (
-    <div className="cursor-pointer hover:scale-105 transform transition duration-300 ease-out mb-5">
+    <div className="bg-white cursor-pointer hover:scale-105 hover:opacity-80 hover:shadow-lg transform transition duration-200 ease-out mb-5 md:mx-2 py-2">
       <div onClick={search} className="flex justify-center relative h-24">
         <Image src={img} layout="fill" className="rounded-xl object-contain" />
       </div>
-      <h3 className="text-xs md:text-sm sm:py-1 m-3 bg-yellow-500  text-white text-center">
+      <h3 className="text-xs md:text-sm sm:py-1 m-3 bg-gold-500  text-white text-center">
         {categorySmall}
       </h3>
       <h3 className="text-xs lg:text-sm text-gray-400 mb-0 mx-3">
         ＜有効成分＞
       </h3>
-      <label className="max_300px text-yellow-600 font-semibold text-xs lg:text-sm mt-0 mx-3">
+      <label className="max_300px text-gold-600 font-semibold text-xs lg:text-sm mt-0 mx-3">
         {activeIngredientName}
       </label>
       <h3 className="text-xs lg:text-sm text-gray-400 mb-0 mx-3">＜商品名＞</h3>

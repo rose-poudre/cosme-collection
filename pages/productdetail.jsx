@@ -40,6 +40,10 @@ const Productdetail = ({ searchResult }) => {
     getProducts();
   }, [router.query.img]);
 
+  // const words1 = activeIngredientName.split("（");
+  // const words2 = words1[1].split("、");
+  // const words3 = words2[words2.length - 1].split("）");
+
   useEffect(() => {
     const getRecommendedProducts = async () => {
       const recommendedData = await getDocs(productsCollectionRef);

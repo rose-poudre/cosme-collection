@@ -25,52 +25,53 @@ const Comparison = ({ placeholder }) => {
 
   useEffect(() => {
     const getProducts = async () => {
-      // const data = await getDocs(chooseProduct);
       const data = await getDocs(productsCollectionRef);
       let product = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-
-      product = product.filter((output, index) => {
-        return output.brand.includes(brand);
-      });
-
-      product = product.filter((output, index) => {
-        return output.manufacture.includes(manufacture);
-      });
-
-      // if (categoryBig) {
-      //   product = product.filter((output, index) => {
-      //     return output.categoryBig.includes(categoryBig);
-      //   });
-      // } else if (categoryMiddle) {
-      //   product = product.filter((output, index) => {
-      //     return output.categoryMiddle.includes(categoryMiddle);
-      //   });
-      // } else {
-      //   product = product.filter((output, index) => {
-      //     return output.categorySmall.includes(categorySmall);
-      //   });
-      // }
-
-      if (categoryBig.includes({ categoryBig })) {
-        product = product.filter((output, index) => {
-          return output.categoryBig.includes(categoryBig);
+      let filteredProduct;
+      if (categorySmall) {
+        filteredProduct = product.filter((output, index) => {
+          return output.categorySmall.includes(categorySmall);
         });
-        alert("含まれない");
+        console.log(filteredProduct);
+        if (filteredProduct.length === 0) {
+          filteredProduct = product.filter((output, index) => {
+            return output.categoryMiddle.includes(categoryMiddle);
+          });
+          if (filteredProduct.length === 0) {
+            filteredProduct = product.filter((output, index) => {
+              return output.categoryBig.includes(categoryBig);
+            });
+          }
+        }
+        filteredProduct = filteredProduct.filter((output, index) => {
+          return output.brand.includes(brand);
+        });
+
+        filteredProduct = filteredProduct.filter((output, index) => {
+          return output.manufacture.includes(manufacture);
+        });
+
+        filteredProduct = filteredProduct.filter((output, index) => {
+          return output.allIngredientName.includes(allIngredientName);
+        });
+      } else {
+        product = product.filter((output, index) => {
+          return output.brand.includes(brand);
+        });
+
+        product = product.filter((output, index) => {
+          return output.manufacture.includes(manufacture);
+        });
+
+        product = product.filter((output, index) => {
+          return output.allIngredientName.includes(allIngredientName);
+        });
       }
-
-      product = product.filter((output, index) => {
-        return output.categoryMiddle.includes(categoryMiddle);
-      });
-
-      product = product.filter((output, index) => {
-        return output.categorySmall.includes(categorySmall);
-      });
-
-      product = product.filter((output, index) => {
-        return output.allIngredientName.includes(allIngredientName);
-      });
-
-      setProducts(product);
+      if (filteredProduct) {
+        setProducts(filteredProduct);
+      } else {
+        setProducts(product);
+      }
     };
     getProducts();
   }, []);
@@ -98,17 +99,17 @@ const Comparison = ({ placeholder }) => {
         <section className="flex-grow pt-14 px-6">
           <h1 className="text-3xl font-semibold mt-2 mb-6">結果を絞り込む</h1>
           <h3 className="font-semibold">成分名で除外検索</h3>
-          <div className="top-0 z-50 grid  grid-cols-1 sm:grid-cols-2 bg-white mb-10">
+          <div className="top-0 z-50 grid  grid-cols-1 sm:grid-cols-2 mb-10">
             <div className="flex">
               <input
                 id="excludeSearchButton"
                 type="text"
-                className="items-center border-2 rounded-sm py-2 shadow-sm flex-grow text-yellow-600 px-5"
+                className="items-center border-2 rounded-sm py-2 shadow-sm flex-grow text-gold-600 px-5"
                 placeholder={placeholder || "除外したい成分を入力"}
               ></input>
               <button
                 onClick={excludeSearch}
-                className="flex-grow bg-yellow-600 text-white rounded-sm shadow-sm"
+                className="flex-grow bg-gold-600 text-white rounded-sm shadow-sm"
               >
                 決定
               </button>

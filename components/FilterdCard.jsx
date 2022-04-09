@@ -15,6 +15,9 @@ const FilterdCard = ({ placeholder }) => {
 
   const resetInput = () => {
     setManufactureInput("");
+    setBrandInput("");
+    setCategoryInput("");
+    setAllIngredientNameInput("");
   };
 
   const search = () => {
@@ -43,7 +46,7 @@ const FilterdCard = ({ placeholder }) => {
           onChange={(e) => setPrice(e.target.value)}
           type="number"
           min={1}
-          className="w-12 pl-2 text-lg outline-none text-yellow-600"
+          className="w-12 pl-2 text-lg outline-none text-gold-600"
         />
         〜
         <input
@@ -51,7 +54,7 @@ const FilterdCard = ({ placeholder }) => {
           onChange={(e) => setPrice(e.target.value)}
           type="number"
           min={1}
-          className="w-12 pl-2 text-lg outline-none text-yellow-600"
+          className="w-12 pl-2 text-lg outline-none text-gold-600"
         />
       </div> */}
 
@@ -66,10 +69,6 @@ const FilterdCard = ({ placeholder }) => {
           placeholder={placeholder || "例：資生堂"}
         />
       </div>
-
-      {/* <div>
-        <ManufactureCard />
-      </div> */}
 
       <p>■ ブランド</p>
       <div className="flex items-center border-2 rounded-md mb-10 py-2 md:shadow-sm">
@@ -108,13 +107,13 @@ const FilterdCard = ({ placeholder }) => {
         <div className="flex mt-10">
           <button
             onClick={resetInput}
-            className="flex-grow text-gray-500 bg-gray-100 w-20 py-5 mx-10 rounded-sm cursor-pointer hover:scale-105 transform transition duration-300 ease-out"
+            className="flex-grow text-gray-500 bg-gray-100 w-20 py-5 mx-2 sm:mx-10 rounded-sm cursor-pointer hover:scale-105 hover:shadow-lg transform transition duration-300 ease-out"
           >
             Cancel
           </button>
           <button
             onClick={search}
-            className="flex-grow text-white bg-yellow-500 w-20 py-2 mx-10 rounded-sm cursor-pointer hover:scale-105 transform transition duration-300 ease-out"
+            className="flex-grow text-white bg-gold-700 w-20 py-2 mx-2 sm:mx-10 rounded-sm cursor-pointer hover:scale-105 hover:shadow-lg transform transition duration-300 ease-out"
           >
             Search
           </button>

@@ -27,7 +27,7 @@ const ProductDetailCard = ({
 }) => {
   return (
     <div
-      className="gird grid-col-3 sm:flex py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out first:border-t"
+      className="bg-white gird grid-col-3 sm:flex py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out first:border-t"
       onClick={() => handlClick(product)}
     >
       {/* <div className="bg-contain bg-center relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0"> */}
@@ -51,26 +51,14 @@ const ProductDetailCard = ({
 
         <h4 className="text-xl">{product}</h4>
         <div className="border-b w-10 pt-2" />
-        <p className="pt-2 text-yellow-600 flex-grow mb-5">{categorySmall}</p>
-        <p className="pt-2 text-sm text-gray-800 flex-grow mb-5">
-          {descriptionOfItem}
-        </p>
-
-        <div>有効成分</div>
-        <p className="pt-2 text-sm bg-yellow-500 rounded text-white">
-          {activeIngredientName}
-        </p>
-        <div className="mt-5">成分</div>
-        <p className="pt-2 text-sm text-gray-400 flex-grow">
-          {allIngredientName}
-        </p>
+        <p className="pt-2 text-gold-600 flex-grow mb-5">{categorySmall}</p>
         <div className="flex justify-between items-end pt-5">
-          <p className="flex items-center">
-            <StarIcon className="h-5 text-red-400" />
-            {star_point}
+          <p className="text-right font-extralight">
+            {capacity} {unit}
           </p>
-
-          <div>
+        </div>
+        <div className="flex justify-between">
+          <div className="flex">
             <p className="text-lg lg:text-2xl font-semibold pb-2">
               {release_date}
             </p>
@@ -78,11 +66,27 @@ const ProductDetailCard = ({
               {Number(price).toLocaleString()}
               <span className="text-sm text-gray-500"> 円（税込）</span>
             </p>
-            <p className="text-right font-extralight">
-              {capacity} {unit}
+          </div>
+          <div className="flex items-center space-x-4 justify-end">
+            <p className="flex items-center ">
+              <StarIcon className="h-5 text-red-400" />
+              {star_point}
             </p>
           </div>
         </div>
+
+        <p className="pt-2 text-sm text-gray-800 flex-grow mb-5">
+          {descriptionOfItem}
+        </p>
+
+        <div>有効成分</div>
+        <p className="pt-2 text-sm bg-gold-500 rounded text-white">
+          {activeIngredientName}
+        </p>
+        <div className="mt-5">成分</div>
+        <p className="pt-2 text-sm text-gray-400 flex-grow">
+          {allIngredientName}
+        </p>
       </div>
     </div>
   );

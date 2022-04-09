@@ -74,10 +74,6 @@ const Productdetail = ({ searchResult }) => {
         <section className="flex-grow pt-14 px-6">
           <h1 className="text-3xl font-semibold mt-2 mb-6"></h1>
 
-          <div className="hidden sm:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
-            <ChooseBrand />
-          </div>
-
           <div className="flex flex-col">
             {products.map(
               ({
@@ -143,13 +139,7 @@ const Productdetail = ({ searchResult }) => {
           </h2>
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 p-3 -ml-3">
             {recommendProducts.map(
-              ({
-                img,
-                product,
-
-                categorySmall,
-                activeIngredientName,
-              }) => (
+              ({ img, product, categorySmall, activeIngredientName }) => (
                 <SameBrandRecommendationCard
                   key={img}
                   img={img}
@@ -159,6 +149,11 @@ const Productdetail = ({ searchResult }) => {
                 />
               )
             )}
+          </div>
+        </section>
+        <section>
+          <div className="sm:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
+            <ChooseBrand />
           </div>
         </section>
       </main>

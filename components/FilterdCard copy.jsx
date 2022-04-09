@@ -103,7 +103,7 @@ const FilterdCard = ({ placeholder }) => {
           </button>
           <button
             onClick={search}
-            className="flex-grow text-white bg-yellow-500 w-20 py-2 rounded-sm cursor-pointer hover:scale-105 transform transition duration-300 ease-out"
+            className="flex-grow text-white bg-gold-500 w-20 py-2 rounded-sm cursor-pointer hover:scale-105 transform transition duration-300 ease-out"
           >
             Search
           </button>

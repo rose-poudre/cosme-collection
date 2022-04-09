@@ -20,7 +20,7 @@ const TopBottomBanner = ({ img, title, description, buttonText }) => {
         <p>{description}</p>
         <button
           onClick={() => router.push("/filtered")}
-          className="text-sm text-white bg-gray-900 px-4 py-2 rounded-lg mt-5"
+          className="text-sm text-white bg-gray-900 px-4 py-2 rounded-lg mt-5 cursor-pointer hover:shadow-lg hover:scale-105 transition transform ease-out hover:bg-gold-700"
         >
           {buttonText}
         </button>

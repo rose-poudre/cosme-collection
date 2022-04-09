@@ -21,21 +21,17 @@ const handlClick = (
   });
 };
 
-// どこをループさせないといけないのか？
-// コンポーネントの中に配列を渡してループさせないといけない
-// useStateでアコーディオン
-
 const ComparisonCard = ({ products }) => {
   return (
     <div>
-      <section className="bg-white">
+      <section>
         <div className="container">
           <div className="flex flex-wrap -mx-4">
             <div className="w-full px-4">
               <div className="max-w-full overflow-x-auto">
                 <table className="table-style table-auto w-full">
                   <thead>
-                    <tr className="bg-primary md:text-base text-center md:text-center">
+                    <tr className="bg-primary md:text-base text-left md:text-center">
                       <th>商品画像</th>
                       <th>販売元</th>
                       <th>ブランド</th>
@@ -47,28 +43,18 @@ const ComparisonCard = ({ products }) => {
                   </thead>
                   <tbody>
                     {products.map(
-                      ({
-                        img,
-                        manufacture,
-                        brand,
-                        product,
-                        categorySmall,
-                        categoryMiddle,
-                        categoryBig,
-                        activeIngredientName,
-                      }) => (
-                        <tr
-                          onClick={() =>
-                            handlClick(
-                              img,
-                              product,
-                              categorySmall,
-                              activeIngredientName,
-                              brand
-                            )
-                          }
-                          key={img}
-                        >
+                      (
+                        {
+                          img,
+                          manufacture,
+                          brand,
+                          product,
+                          categorySmall,
+                          activeIngredientName,
+                        },
+                        index
+                      ) => (
+                        <tr key={index}>
                           <td className="tdBgWhite">
                             <div className="bg-contain bg-center relative h-10 p-0 md:p-10 mr-0 md:mr-10 ml-0 md:ml-10 flex-shrink-0">
                               <Image
@@ -100,12 +86,11 @@ const ComparisonCard = ({ products }) => {
                           <td className="tdBgWhite">
                             <div
                               onClick={() => handlClick(img)}
-                              className="tdBgGray py-1 md:py-2 inline-block
+                              className="tdBgGray overflow-y-auto py-1 md:py-2 inline-block
 																	rounded
-                                  bg-yellow-600
+                                  bg-gold-600
                                   text-white
-																	hover:bg-yellow-500
-"
+																	hover:bg-gold-500"
                             >
                               商品詳細ページへ
                             </div>

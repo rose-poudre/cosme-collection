@@ -15,7 +15,7 @@ const Banner = () => {
         {/* <p className="text-sm sm:text-lg">有効成分は含まれている？</p> */}
         <button
           onClick={() => router.push("/filtered")}
-          className="text-yellow-600 bg-white px-10 py-4 shadow-md rounded-full font-bold my-3 hover:shadow-xl active:scale-90 transition duration-150"
+          className="text-gold-300 bg-white px-10 py-4 shadow-md rounded-full font-bold my-3 hover:shadow-md hover:scale-105 hover:bg-gold-100 hover:text-white active:scale-90 transition duration-150"
         >
           比較検索する
         </button>

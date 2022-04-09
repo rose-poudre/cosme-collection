@@ -14,6 +14,7 @@ const Productlist = ({ searchResult }) => {
   const {
     brand,
     categorySmall,
+    categoryBig,
     manufacture,
     activeIngredientName,
     allIngredientName,
@@ -42,6 +43,11 @@ const Productlist = ({ searchResult }) => {
           return output.categorySmall.includes(categorySmall);
         });
         setProducts(product);
+      } else if (categoryBig) {
+        product = product.filter((output, index) => {
+          return output.categoryBig.includes(categoryBig);
+        });
+        setProducts(product);
       } else if (activeIngredientName) {
         product = product.filter((output, index) => {
           return output.activeIngredientName.includes(activeIngredientName);
@@ -68,6 +74,7 @@ const Productlist = ({ searchResult }) => {
             「
             {brand ||
               categorySmall ||
+              categoryBig ||
               manufacture ||
               activeIngredientName ||
               allIngredientName}
@@ -81,6 +88,7 @@ const Productlist = ({ searchResult }) => {
                 brand,
                 product,
                 categorySmall,
+                categoryBig,
                 price,
                 capacity,
                 unit,
@@ -93,6 +101,7 @@ const Productlist = ({ searchResult }) => {
                   manufacture={manufacture}
                   brand={brand}
                   categorySmall={categorySmall}
+                  categoryBig={categoryBig}
                   product={product}
                   price={price}
                   capacity={capacity}
