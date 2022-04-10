@@ -64,7 +64,7 @@ const FilterdCard = ({ placeholder }) => {
         <input
           value={manufactureInput}
           onChange={(e) => setManufactureInput(e.target.value)}
-          className="flex-grow pl-5 bg-transparent outline-none text-sm text-gray-400"
+          className="flex-grow pl-5 bg-transparent outline-none text-sm  text-gold-400"
           type="text"
           placeholder={placeholder || "例：資生堂"}
         />
@@ -75,7 +75,7 @@ const FilterdCard = ({ placeholder }) => {
         <input
           value={brandInput}
           onChange={(e) => setBrandInput(e.target.value)}
-          className="flex-grow pl-5 bg-transparent outline-none text-sm text-gray-400"
+          className="flex-grow pl-5 bg-transparent outline-none text-sm  text-gold-400"
           type="text"
           placeholder={placeholder || "例：アクアレーベル"}
         />
@@ -86,7 +86,7 @@ const FilterdCard = ({ placeholder }) => {
         <input
           value={categoryInput}
           onChange={(e) => setCategoryInput(e.target.value)}
-          className="flex-grow pl-5 bg-transparent outline-none text-sm text-gray-400"
+          className="flex-grow pl-5 bg-transparent outline-none text-sm  text-gold-400"
           type="text"
           placeholder={placeholder || "例：化粧水"}
         />
@@ -97,7 +97,7 @@ const FilterdCard = ({ placeholder }) => {
         <input
           value={allIngredientNameInput}
           onChange={(e) => setAllIngredientNameInput(e.target.value)}
-          className="flex-grow pl-5 bg-transparent outline-none text-sm text-gray-400"
+          className="flex-grow pl-5 bg-transparent outline-none text-sm text-gold-400"
           type="text"
           placeholder={placeholder || "例：トラネキサム酸"}
         />

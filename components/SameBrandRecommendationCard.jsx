@@ -25,8 +25,11 @@ const SameBrandRecommendationCard = ({
   console.log(search);
 
   return (
-    <div className="bg-white cursor-pointer hover:scale-105 hover:opacity-80 hover:shadow-lg transform transition duration-200 ease-out mb-5 md:mx-2 py-2">
-      <div onClick={search} className="flex justify-center relative h-24">
+    <div
+      onClick={search}
+      className="bg-white cursor-pointer hover:scale-105 hover:opacity-80 hover:shadow-lg transform transition duration-200 ease-out mb-5 md:mx-2 py-2"
+    >
+      <div className="flex justify-center relative h-24">
         <Image src={img} layout="fill" className="rounded-xl object-contain" />
       </div>
       <h3 className="text-xs md:text-sm sm:py-1 m-3 bg-gold-500  text-white text-center">

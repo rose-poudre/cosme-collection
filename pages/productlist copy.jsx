@@ -13,6 +13,7 @@ const Productlist = ({ searchResult }) => {
 
   const {
     manufacture,
+
     brand,
     categorySmall,
     categoryBig,
