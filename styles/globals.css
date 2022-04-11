@@ -310,4 +310,23 @@
     margin-right: 12px !important;
     margin-bottom: 12px !important;
   }
+
+  .privacy-main {
+    line-height: 2;
+  }
+
+  .privacy-h2 {
+    border-left: 12px solid #a48552;
+    border-right: 12px solid #a48552;
+    border-top: 1px solid #a48552;
+    border-bottom: 1px solid #a48552;
+  }
+
+  .privacy-list {
+    background: radial-gradient(#dfd4c2, #c8b392);
+  }
+
+  .privacy-listli {
+    list-style-type: disc;
+  }
 }
