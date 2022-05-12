@@ -156,7 +156,7 @@ const Productdetail = ({ searchResult }) => {
         </section>
         <section className="flex-grow pt-14 px-6">
           <h2 className="text-2xl font-semibold py-8">
-            「{activeIngredientName}
+            同じ有効成分「{activeIngredientName}
             」を含む商品
           </h2>
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 p-3 -ml-3">

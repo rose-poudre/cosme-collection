@@ -7,7 +7,7 @@ const Banner = () => {
   return (
     <div className="relative h-[300px] sm:h-[400] lg:h-[500px] xl:h-[600px] 2xl:h-[700px]">
       <Image
-        src="https://firebasestorage.googleapis.com/v0/b/rikejo-cosme.appspot.com/o/woman-gc90fb67d2_1920.jpg?alt=media&token=af32684b-e741-464d-a02c-71443f221be9"
+        src="https://firebasestorage.googleapis.com/v0/b/rikejo-cosme.appspot.com/o/top-banner.jpeg?alt=media&token=30e63c5c-f5c1-4633-b68c-590fcd7c757a"
         layout="fill"
         objectFit="cover"
       />

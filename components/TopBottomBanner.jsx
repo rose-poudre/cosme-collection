@@ -16,11 +16,11 @@ const TopBottomBanner = ({ img, title, description, buttonText }) => {
       </div>
 
       <div className="absolute top-32 left-12">
-        <h3 className="text-4xl mb-3 w-64">{title}</h3>
-        <p>{description}</p>
+        <h3 className="text-white text-4xl mb-3 w-64">{title}</h3>
+        <p className="text-white">{description}</p>
         <button
           onClick={() => router.push("/filtered")}
-          className="text-sm text-white bg-gray-900 px-4 py-2 rounded-lg mt-5 cursor-pointer hover:shadow-lg hover:scale-105 transition transform ease-out hover:bg-gold-700"
+          className="text-sm text-gray-900 bg-white px-4 py-2 rounded-lg mt-5 cursor-pointer hover:shadow-lg hover:scale-105 transition transform ease-out hover:bg-gold-700"
         >
           {buttonText}
         </button>

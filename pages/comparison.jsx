@@ -123,9 +123,13 @@ const Comparison = ({ placeholder }) => {
             </div>
           </div>
 
-          <div className="hidden sm:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
+          <section>
+            <h2 className="text-3xl font-semibold mt-10 py-8">
+              ブランドから探す
+            </h2>
+            <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap"></div>
             <ChooseBrand />
-          </div>
+          </section>
         </section>
       </main>
       <Footer />

@@ -20,21 +20,21 @@ const Header = ({ placeholder }) => {
   };
 
   return (
-    <header className="sticky top-0 z-50 grid grid-cols-2 sm:grid-cols-3 navbar shadow-md px-5 sm:py-2 md:px-10">
+    <header className="sticky top-0 z-50 grid grid-cols-2 sm:grid-cols-3 navbar shadow-md px-5 md:px-10">
       {/* Left */}
       <div
         onClick={() => router.push("/")}
-        className="relative flex items-center h-14 cursor-pointer my-auto sm:mr-12"
+        className="relative flex items-center h-14 cursor-pointer sm:mr-12"
       >
         <Image
-          src="https://firebasestorage.googleapis.com/v0/b/rikejo-cosme.appspot.com/o/cosmetics_collection-logo-long.png?alt=media&token=caecb166-4d2e-4f16-b122-95ced4d35de5"
+          src="https://firebasestorage.googleapis.com/v0/b/rikejo-cosme.appspot.com/o/cosme_science-logo-long.png?alt=media&token=7dce2ccc-fe8b-45c3-8f42-8ee24eb32f9d"
           layout="fill"
           objectFit="contain"
           objectPosition="left"
         />
       </div>
       {/* Middle - Search */}
-      <div className="hidden sm:flex items-center border-2 rounded-sm py-2 md:shadow-sm bg-white opacity-75">
+      <div className="hidden sm:flex items-center border-2 rounded-sm my-2 md:shadow-sm bg-white opacity-75">
         <input
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}

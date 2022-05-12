@@ -33,11 +33,11 @@ const ComparisonCard = ({ products }) => {
                   <thead>
                     <tr className="bg-primary md:text-base text-left md:text-center">
                       <th>商品画像</th>
-                      <th>販売元</th>
-                      <th>ブランド</th>
                       <th>商品名</th>
                       <th>カテゴリ</th>
                       <th>有効成分</th>
+                      <th>ブランド</th>
+                      <th>販売元</th>
                       <th>商品リンク</th>
                     </tr>
                   </thead>
@@ -46,11 +46,11 @@ const ComparisonCard = ({ products }) => {
                       (
                         {
                           img,
-                          manufacture,
-                          brand,
                           product,
                           categorySmall,
                           activeIngredientName,
+                          brand,
+                          manufacture,
                         },
                         index
                       ) => (
@@ -58,6 +58,7 @@ const ComparisonCard = ({ products }) => {
                           <td className="tdBgWhite">
                             <div className="bg-contain bg-center relative h-10 p-0 md:p-10 mr-0 md:mr-10 ml-0 md:ml-10 flex-shrink-0">
                               <Image
+                                onClick={() => handlClick(img)}
                                 src={img}
                                 layout="fill"
                                 // objectFit="cover"
@@ -65,12 +66,6 @@ const ComparisonCard = ({ products }) => {
                                 className="rounded-xl object-contain"
                               />
                             </div>
-                          </td>
-                          <td className="tdBgGray">
-                            <div className="tb-text-wrap">{manufacture}</div>
-                          </td>
-                          <td className="tdBgWhite">
-                            <div className="tb-text-wrap">{brand}</div>
                           </td>
                           <td className="tdBgGray">
                             <div className="tb-text-wrap">{product}</div>
@@ -83,6 +78,13 @@ const ComparisonCard = ({ products }) => {
                               {activeIngredientName}
                             </div>
                           </td>
+                          <td className="tdBgWhite">
+                            <div className="tb-text-wrap">{brand}</div>
+                          </td>
+                          <td className="tdBgGray">
+                            <div className="tb-text-wrap">{manufacture}</div>
+                          </td>
+
                           <td className="tdBgWhite">
                             <div
                               onClick={() => handlClick(img)}
