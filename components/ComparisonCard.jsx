@@ -58,7 +58,16 @@ const ComparisonCard = ({ products }) => {
                           <td className="tdBgWhite">
                             <div className="bg-contain bg-center relative h-10 p-0 md:p-10 mr-0 md:mr-10 ml-0 md:ml-10 flex-shrink-0">
                               <Image
-                                onClick={() => handlClick(img)}
+                                onClick={() =>
+                                  handlClick(
+                                    img,
+                                    product,
+                                    categorySmall,
+                                    activeIngredientName,
+                                    brand,
+                                    manufacture
+                                  )
+                                }
                                 src={img}
                                 layout="fill"
                                 // objectFit="cover"
@@ -87,7 +96,16 @@ const ComparisonCard = ({ products }) => {
 
                           <td className="tdBgWhite">
                             <div
-                              onClick={() => handlClick(img)}
+                              onClick={() =>
+                                handlClick(
+                                  img,
+                                  product,
+                                  categorySmall,
+                                  activeIngredientName,
+                                  brand,
+                                  manufacture
+                                )
+                              }
                               className="tdBgGray overflow-y-auto py-1 md:py-2 inline-block
 																	rounded
                                   bg-gold-600
